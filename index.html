@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="stel-secoes-v04.css">
 <link rel="stylesheet" href="stel-motion-v07-1.css">
+<link rel="stylesheet" href="stel-solar-v08.css">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -118,7 +119,42 @@
 </div></section>
 
 <section class="st-section" id="solucoes" aria-labelledby="st-sol-title"><div class="st-wrap"><div class="st-head"><div><span class="st-tag"><span aria-hidden="true">✳</span>Energia solar para você</span><h2 id="st-sol-title">Uma solução para<br><em>cada tipo de consumo.</em></h2></div><p class="st-lead">Da casa à produção rural, a STEL dimensiona o sistema conforme sua necessidade.</p></div>
-<div class="st-segment-grid"><article class="st-card st-segment"><div class="st-seg-top"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10H3z M9 21v-7h6v7"/></svg><span class="st-meta">01 / 03</span></div><div><h3>Residencial</h3><p>Menos peso da conta de luz no orçamento da família.</p></div><a class="st-text-link" href="#cadastro" data-profile="residencial">Simular para minha casa<span class="arrow-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M7 6h11v11"/></svg></span></a></article><article class="st-card st-segment"><div class="st-seg-top"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21V4h12v17 M15 10h6v11 M7 8h4 M7 12h4 M7 16h4 M3 21h18"/></svg><span class="st-meta">02 / 03</span></div><div><h3>Empresarial</h3><p>Reduza um custo recorrente e proteja a margem do negócio.</p></div><a class="st-text-link" href="#cadastro" data-profile="empresa">Analisar minha empresa<span class="arrow-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M7 6h11v11"/></svg></span></a></article><article class="st-card st-segment"><div class="st-seg-top"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21h18 M12 21V3 M12 9C7 9 4 6 4 3c5 0 8 2 8 6 M12 15c5 0 8-3 8-6-5 0-8 2-8 6"/></svg><span class="st-meta">03 / 03</span></div><div><h3>Rural</h3><p>Mais controle dos gastos de energia na propriedade.</p></div><a class="st-text-link" href="#cadastro" data-profile="rural">Simular na propriedade<span class="arrow-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M7 6h11v11"/></svg></span></a></article></div></div></section>
+<div class="st-solar-module">
+<div class="st-solar-tabs" role="tablist" aria-label="Tipos de consumo" aria-orientation="vertical">
+<button class="st-solar-tab" type="button" role="tab" id="solar-tab-residencial" aria-controls="solar-panel-residencial" aria-selected="true" tabindex="0"><span class="st-solar-tab-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10H3z M9 21v-7h6v7"/></svg></span><span class="st-solar-tab-copy"><span class="st-solar-tab-name">Residencial</span><span class="st-solar-tab-desc">Menos peso da conta de luz no orçamento da família.</span></span><span class="st-solar-tab-index" aria-hidden="true">01 / 03</span><span class="st-solar-tab-arrow" aria-hidden="true">↗</span></button>
+<button class="st-solar-tab" type="button" role="tab" id="solar-tab-empresarial" aria-controls="solar-panel-empresarial" aria-selected="false" tabindex="-1"><span class="st-solar-tab-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21V4h12v17 M15 10h6v11 M7 8h4 M7 12h4 M7 16h4 M3 21h18"/></svg></span><span class="st-solar-tab-copy"><span class="st-solar-tab-name">Empresarial</span><span class="st-solar-tab-desc">Reduza um custo recorrente e proteja a margem do negócio.</span></span><span class="st-solar-tab-index" aria-hidden="true">02 / 03</span><span class="st-solar-tab-arrow" aria-hidden="true">↗</span></button>
+<button class="st-solar-tab" type="button" role="tab" id="solar-tab-rural" aria-controls="solar-panel-rural" aria-selected="false" tabindex="-1"><span class="st-solar-tab-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21h18 M12 21V3 M12 9C7 9 4 6 4 3c5 0 8 2 8 6 M12 15c5 0 8-3 8-6-5 0-8 2-8 6"/></svg></span><span class="st-solar-tab-copy"><span class="st-solar-tab-name">Rural</span><span class="st-solar-tab-desc">Mais controle dos gastos de energia na propriedade.</span></span><span class="st-solar-tab-index" aria-hidden="true">03 / 03</span><span class="st-solar-tab-arrow" aria-hidden="true">↗</span></button>
+</div>
+<div class="st-solar-display">
+<section class="st-solar-panel" role="tabpanel" id="solar-panel-residencial" aria-labelledby="solar-tab-residencial" >
+<div class="st-solar-stage" role="img" aria-label="Simulação ilustrativa residencial: ambiente sem energia solar" data-category="Residencial">
+<img class="st-solar-image st-solar-before" src="assets/stel-residencial-sem-solar-1440-05b677a0.webp" alt="" width="1440" height="750" loading="lazy" decoding="async">
+<img class="st-solar-image st-solar-after" data-src="assets/stel-residencial-com-solar-1440-579f6a28.webp" alt="" width="1440" height="750" decoding="async" aria-hidden="true">
+<span class="st-solar-badge" aria-hidden="true"><span class="st-solar-dot"></span><span class="st-solar-badge-text">Sem energia solar</span></span>
+<span class="st-solar-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></svg> <span>Passe o mouse para revelar</span></span>
+</div>
+<div class="st-solar-panel-foot"><div class="st-solar-panel-info"><p class="st-solar-mobile-desc">Menos peso da conta de luz no orçamento da família.</p><span class="st-solar-disclaimer">Visualização ilustrativa</span><button class="st-solar-toggle" type="button" aria-pressed="false"><span class="st-solar-toggle-icon" aria-hidden="true">✳</span><span class="st-solar-toggle-text">Ver com energia solar</span></button></div><a class="pill st-solar-cta" href="#cadastro" data-profile="residencial">Simular para minha casa<span class="arrow-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M7 6h11v11"/></svg></span></a></div>
+</section>
+<section class="st-solar-panel" role="tabpanel" id="solar-panel-empresarial" aria-labelledby="solar-tab-empresarial" hidden>
+<div class="st-solar-stage" role="img" aria-label="Simulação ilustrativa empresarial: ambiente sem energia solar" data-category="Empresarial">
+<img class="st-solar-image st-solar-before" data-src="assets/stel-empresarial-sem-solar-1440-22f1e6a1.webp" alt="" width="1440" height="750" loading="lazy" decoding="async">
+<img class="st-solar-image st-solar-after" data-src="assets/stel-empresarial-com-solar-1440-82ff0111.webp" alt="" width="1440" height="750" decoding="async" aria-hidden="true">
+<span class="st-solar-badge" aria-hidden="true"><span class="st-solar-dot"></span><span class="st-solar-badge-text">Sem energia solar</span></span>
+<span class="st-solar-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></svg> <span>Passe o mouse para revelar</span></span>
+</div>
+<div class="st-solar-panel-foot"><div class="st-solar-panel-info"><p class="st-solar-mobile-desc">Reduza um custo recorrente e proteja a margem do negócio.</p><span class="st-solar-disclaimer">Visualização ilustrativa</span><button class="st-solar-toggle" type="button" aria-pressed="false"><span class="st-solar-toggle-icon" aria-hidden="true">✳</span><span class="st-solar-toggle-text">Ver com energia solar</span></button></div><a class="pill st-solar-cta" href="#cadastro" data-profile="empresa">Analisar minha empresa<span class="arrow-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M7 6h11v11"/></svg></span></a></div>
+</section>
+<section class="st-solar-panel" role="tabpanel" id="solar-panel-rural" aria-labelledby="solar-tab-rural" hidden>
+<div class="st-solar-stage" role="img" aria-label="Simulação ilustrativa rural: ambiente sem energia solar" data-category="Rural">
+<img class="st-solar-image st-solar-before" data-src="assets/stel-rural-sem-solar-1440-0f9768d0.webp" alt="" width="1440" height="750" loading="lazy" decoding="async">
+<img class="st-solar-image st-solar-after" data-src="assets/stel-rural-com-solar-1440-a4ffdead.webp" alt="" width="1440" height="750" decoding="async" aria-hidden="true">
+<span class="st-solar-badge" aria-hidden="true"><span class="st-solar-dot"></span><span class="st-solar-badge-text">Sem energia solar</span></span>
+<span class="st-solar-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></svg> <span>Passe o mouse para revelar</span></span>
+</div>
+<div class="st-solar-panel-foot"><div class="st-solar-panel-info"><p class="st-solar-mobile-desc">Mais controle dos gastos de energia na propriedade.</p><span class="st-solar-disclaimer">Visualização ilustrativa</span><button class="st-solar-toggle" type="button" aria-pressed="false"><span class="st-solar-toggle-icon" aria-hidden="true">✳</span><span class="st-solar-toggle-text">Ver com energia solar</span></button></div><a class="pill st-solar-cta" href="#cadastro" data-profile="rural">Simular na propriedade<span class="arrow-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M7 6h11v11"/></svg></span></a></div>
+</section>
+</div>
+</div></div></section>
 
 <section class="st-section" id="projetos" aria-labelledby="st-project-title"><div class="st-wrap"><div class="st-head"><div><span class="st-tag"><span aria-hidden="true">✳</span>Projetos realizados</span><h2 id="st-project-title">Obras reais.<br><em>Energia em ação.</em></h2></div><p class="st-lead">Conheça diferentes aplicações da engenharia STEL em energia solar.</p></div><div class="st-bento">
 <figure class="st-photo st-photo-1"><img src="assets/obra-commercial-1440-015909c4.webp" srcset="assets/obra-commercial-768-dea77097.webp 768w, assets/obra-commercial-1440-015909c4.webp 1440w" sizes="(max-width: 700px) 88vw, (max-width: 1000px) 44vw, 35vw" width="1440" height="1080" alt="Imagem aprimorada com IA do projeto AR Pneus" loading="lazy" decoding="async"><figcaption><span class="st-meta">Comercial</span><h3>AR Pneus</h3></figcaption></figure><figure class="st-photo st-photo-2"><img src="assets/obra-rural-1440-3ee23f61.webp" srcset="assets/obra-rural-768-9190bc29.webp 768w, assets/obra-rural-1440-3ee23f61.webp 1440w" sizes="(max-width: 700px) 88vw, (max-width: 1000px) 44vw, 57vw" width="1440" height="1080" alt="Imagem aprimorada com IA do projeto Projeto rural STEL" loading="lazy" decoding="async"><figcaption><span class="st-meta">Rural</span><h3>Projeto rural STEL</h3></figcaption></figure><figure class="st-photo st-photo-3"><img src="assets/obra-gotardo-1440-050cf9f1.webp" srcset="assets/obra-gotardo-768-a10972a3.webp 768w, assets/obra-gotardo-1440-050cf9f1.webp 1440w" sizes="(max-width: 700px) 88vw, (max-width: 1000px) 44vw, 28vw" width="1440" height="1080" alt="Imagem aprimorada com IA do projeto São Gotardo" loading="lazy" decoding="async"><figcaption><span class="st-meta">Usina em solo</span><h3>São Gotardo</h3></figcaption></figure>
@@ -151,5 +187,6 @@
 <script defer src="vendor/ScrollSmoother.min.js"></script>
 <script defer src="script.js"></script>
 <script defer src="stel-secoes-v04.js"></script>
-<script defer src="stel-motion-v07-1.js"></script>
+<script defer src="stel-motion-v08.js"></script>
+<script defer src="stel-solar-v08.js"></script>
 </body></html>
