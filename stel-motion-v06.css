@@ -1,0 +1,5 @@
+/* STEL V06 — transient animation state only; no layout or hero changes. */
+.st-landing .st-revealing,.campaign-sign .st-revealing{transition:none!important;will-change:transform,opacity}
+.st-landing .st-revealing:focus-within{filter:none!important}
+.campaign-sign.st-ribbons-idle .ribbon-unit,.campaign-sign.st-ribbons-idle .ribbon::after{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.st-landing .st-revealing,.campaign-sign .st-revealing{will-change:auto;opacity:1!important;filter:none!important}.campaign-sign .ribbon-unit,.campaign-sign .ribbon::after{animation:none!important}}
