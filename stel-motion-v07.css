@@ -1,0 +1,41 @@
+/* STEL V07: reversible, scroll-linked motion. No hidden-content baseline. */
+.st-landing{overflow-x:clip}
+.st-landing .st-motion-edge{
+  transition:none!important;
+  opacity:var(--st-opacity,1);
+  translate:var(--st-x,0px) var(--st-y,0px);
+  scale:var(--st-scale,1);
+  filter:var(--st-filter,none);
+}
+.st-landing .st-motion-edge.st-motion-card{
+  clip-path:inset(var(--st-cut-top,0%) 0 var(--st-cut-bottom,0%) 0 round var(--st-radius,26px));
+}
+.st-landing .st-motion-edge.st-motion-card:focus-within,
+.st-landing .st-motion-edge:focus-within{
+  opacity:1;translate:none;scale:none;filter:none;clip-path:none;
+}
+.st-landing .st-motion-card{isolation:isolate}
+.st-motion-glint{
+  position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(112deg,transparent 10%,#d7fa5a 48%,transparent 82%);
+  opacity:var(--st-glint-alpha,0);transform:translateX(var(--st-glint-x,0%));
+}
+.st-motion-wave .st-word-mask{display:inline-block;vertical-align:baseline;overflow:clip;padding-block:.11em;margin-block:-.11em;white-space:nowrap}
+.st-motion-wave .st-word-ink{display:inline-block}
+.st-motion-wave.st-wave-edge .st-word-ink{
+  translate:0 var(--st-word-y,0%);opacity:var(--st-word-alpha,1);
+  filter:var(--st-word-filter,none);
+}
+.st-motion-wave.st-wave-edge:focus-within .st-word-ink{translate:none;opacity:1;filter:none}
+.campaign-sign .ribbon.st-band-edge{
+  opacity:var(--st-band-alpha,1);
+  translate:var(--st-band-x,0%) var(--st-band-y,0px);
+  scale:var(--st-band-scale,1);
+  filter:var(--st-band-filter,none);
+  clip-path:inset(0 var(--st-band-right,0%) 0 var(--st-band-left,0%));
+}
+.campaign-sign.st-ribbons-idle .ribbon-unit,.campaign-sign.st-ribbons-idle .ribbon::after{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){
+  .st-landing .st-motion-edge,.campaign-sign .ribbon.st-band-edge,.st-motion-wave.st-wave-edge .st-word-ink{opacity:1!important;translate:none!important;scale:none!important;filter:none!important;clip-path:none!important}
+  .st-motion-glint{display:none!important}
+}
