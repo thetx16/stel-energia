@@ -190,4 +190,21 @@
 <script defer src="stel-secoes-v09-1.js"></script>
 <script defer src="stel-motion-v09.js"></script>
 <script defer src="stel-solar-v08-1.js"></script>
+<!-- NPS CENTRAL — INÍCIO -->
+<kloh-nps-popup
+  site-id="stel-energia"
+  site-name="STEL Energia Solar"
+  button-label="Responder NPS">
+</kloh-nps-popup>
+
+<script>
+  (() => {
+    const loader = document.createElement('script');
+    loader.src = atob('aHR0cHM6Ly9ucHMtbHBzLnZlcmNlbC5hcHAvd2lkZ2V0Lmpz');
+    loader.async = true;
+    loader.onerror = () => console.error('[NPS] Não foi possível carregar o componente central.');
+    document.head.appendChild(loader);
+  })();
+</script>
+<!-- NPS CENTRAL — FIM -->
 </body></html>
