@@ -1,0 +1,51 @@
+/* STEL V08 — localized before/after solar explorer */
+.st-solar-module{display:grid;grid-template-columns:minmax(260px,.37fr) minmax(0,1fr);gap:16px;align-items:stretch}
+.st-solar-tabs{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:10px;min-width:0}
+.st-solar-tab{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:14px;text-align:left;padding:clamp(18px,2vw,28px) 20px;min-width:0;min-height:130px;border:1px solid var(--st-line);border-radius:22px;background:var(--st-panel);color:var(--white);cursor:pointer;transition:background .25s,border-color .25s,box-shadow .25s}
+.st-solar-tab[aria-selected="true"]{background:linear-gradient(135deg,#172a30,#101d2a);border-color:var(--lime);box-shadow:inset 3px 0 0 var(--lime)}
+.st-solar-tab:hover{border-color:var(--lime)}
+.st-solar-tab-icon{display:grid;place-items:center;width:36px;height:36px;color:var(--lime)}
+.st-solar-tab-icon svg{width:33px;height:33px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.st-solar-tab-copy{display:grid;gap:7px;min-width:0;padding-right:12px}
+.st-solar-tab-name{font:750 clamp(21px,2vw,30px)/1.08 Manrope,Arial,sans-serif;letter-spacing:-.055em;color:inherit}
+.st-solar-tab-desc{font:400 15px/1.45 "DM Sans",Arial,sans-serif;color:var(--st-muted)}
+.st-solar-tab-index{position:absolute;top:12px;right:14px;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--st-muted)}
+.st-solar-tab-arrow{position:absolute;right:14px;bottom:13px;font-size:19px;color:var(--lime);opacity:0;transition:opacity .2s}
+.st-solar-tab[aria-selected="true"] .st-solar-tab-arrow{opacity:1}
+.st-solar-display{min-width:0;min-height:0}
+.st-solar-panel[hidden]{display:none!important}
+.st-solar-panel{display:flex;flex-direction:column;min-height:100%;border:1px solid var(--st-line);border-radius:26px;overflow:hidden;background:var(--st-panel)}
+.st-solar-stage{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:1440/750;min-width:0;flex:1;background:#111e2b;--solar-x:50%;--solar-y:50%;--solar-radius:clamp(135px,18vw,260px)}
+.st-solar-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;user-select:none}
+.st-solar-before{z-index:0}
+.st-solar-after{z-index:1;opacity:0;transition:opacity .16s ease;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-size:100% 100%;-webkit-mask-size:100% 100%;
+mask-image:radial-gradient(circle var(--solar-radius) at var(--solar-x) var(--solar-y),#000 0%,#000 40%,rgba(0,0,0,.75) 60%,rgba(0,0,0,.4) 75%,rgba(0,0,0,.12) 88%,transparent 100%);
+-webkit-mask-image:radial-gradient(circle var(--solar-radius) at var(--solar-x) var(--solar-y),#000 0%,#000 40%,rgba(0,0,0,.75) 60%,rgba(0,0,0,.4) 75%,rgba(0,0,0,.12) 88%,transparent 100%)}
+.st-solar-stage.st-solar-ready.st-solar-hover .st-solar-after,.st-solar-stage.st-solar-ready.st-solar-full .st-solar-after{opacity:1}
+.st-solar-stage.st-solar-full .st-solar-after{mask-image:none;-webkit-mask-image:none}
+.st-solar-badge,.st-solar-hint{position:absolute;display:flex;align-items:center;gap:8px;z-index:2;pointer-events:none;background:rgba(0,9,20,.86);border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#fff;font:600 12px/1.25 "DM Sans",Arial,sans-serif;padding:10px 13px}
+.st-solar-badge{top:16px;left:16px}.st-solar-dot{height:7px;width:7px;border-radius:50%;background:#c5cfd6;flex:none}
+.st-solar-stage.st-solar-hover .st-solar-dot,.st-solar-stage.st-solar-full .st-solar-dot{background:var(--lime);box-shadow:0 0 8px #d7fa5a88}
+.st-solar-hint{bottom:16px;right:16px;color:var(--lime)}
+.st-solar-hint svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.4}
+.st-solar-stage.st-solar-full .st-solar-hint{opacity:0}
+.st-solar-panel-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 20px;flex-wrap:wrap}
+.st-solar-panel-info{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.st-solar-disclaimer{font-size:11px;color:var(--st-muted)}
+.st-solar-toggle{display:inline-flex;align-items:center;gap:7px;color:var(--lime);background:transparent;border:0;padding:5px 0;font-size:13px;font-weight:700;text-align:left;cursor:pointer;min-height:30px}
+.st-solar-toggle-icon{font-size:16px}
+.st-solar-cta{flex:none;min-height:44px;font-size:13px}
+.st-solar-cta .arrow-disc{width:35px}
+.st-solar-mobile-desc{display:none}
+@media(max-width:1100px) and (min-width:801px){.st-solar-module{grid-template-columns:minmax(230px,.42fr) minmax(0,1fr)}.st-solar-tab{padding:22px 14px;gap:10px;min-height:116px}.st-solar-tab-desc{font-size:14px}.st-solar-tab-name{font-size:23px}}
+@media(max-width:800px){.st-solar-module{grid-template-columns:1fr;gap:10px}.st-solar-tabs{grid-template-rows:1fr;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.st-solar-tab{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;min-height:94px;padding:12px 5px;border-radius:15px;text-align:center}.st-solar-tab[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--lime)}.st-solar-tab-copy{padding:0}.st-solar-tab-name{font-size:clamp(13px,3.7vw,21px);letter-spacing:-.035em}.st-solar-tab-desc,.st-solar-tab-index,.st-solar-tab-arrow{display:none}.st-solar-tab-icon,.st-solar-tab-icon svg{width:25px;height:25px}.st-solar-panel{border-radius:20px}.st-solar-stage{flex:none;aspect-ratio:1440/750}.st-solar-badge{top:10px;left:10px;padding:7px 10px;font-size:11px}.st-solar-hint{display:none}.st-solar-panel-foot{padding:15px;align-items:stretch;gap:15px}.st-solar-panel-info{width:100%;gap:7px}.st-solar-mobile-desc{display:block;color:var(--st-muted);font-size:16px;line-height:1.5}.st-solar-disclaimer{font-size:11px}.st-solar-toggle{font-size:14px;min-height:40px}.st-solar-cta{width:100%}}
+@media(pointer:coarse),(hover:none){.st-solar-hint{display:none}}
+@media(prefers-reduced-motion:reduce){.st-solar-image,.st-solar-tab{transition:none}}
+
+/* V08.1 — mobile: installed-solar image only, no reveal or toggle. */
+@media(max-width:800px){
+ .st-solar-stage .st-solar-before,.st-solar-toggle,.st-solar-hint{display:none!important}
+ .st-solar-stage .st-solar-after{mask-image:none!important;-webkit-mask-image:none!important;transition:none;opacity:0}
+ .st-solar-stage.st-solar-ready .st-solar-after{opacity:1}
+ .st-solar-stage .st-solar-dot{background:var(--lime);box-shadow:0 0 8px #d7fa5a88}
+}
