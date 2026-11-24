@@ -141,7 +141,7 @@ if (window.gsap && window.ScrollTrigger && window.ScrollSmoother) {
     const events = new AbortController();
     const listen = { signal: events.signal };
     const smoother = conditions.desktop ? ScrollSmoother.create({
-      wrapper: '#smooth-wrapper', content: '#smooth-content', smooth: .55
+      wrapper: '#smooth-wrapper', content: '#smooth-content', smooth: .95, smoothTouch: 0
     }) : null;
 
     gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -150,13 +150,12 @@ if (window.gsap && window.ScrollTrigger && window.ScrollSmoother) {
       .from('.copy, .hero-actions', { y: 10, opacity: .85, stagger: .08, duration: .45 }, .20)
       .from('.hero-tools', { opacity: 0, duration: .6 }, .95);
 
-    // Only hold the frame when the full hero fits, so short viewports stay scrollable.
-    const canHold = () => conditions.desktop && hero.offsetHeight <= innerHeight;
+    // Keep the original micro-parallax without pinning the hero or interrupting native scrolling.
     gsap.timeline({
       defaults: { ease: 'none' },
       scrollTrigger: {
-        trigger: '.hero-stage', start: 'top top', end: () => '+=' + (canHold() ? innerHeight * .38 : Math.min(150, innerHeight * .2)),
-        pin: canHold(), pinSpacing: true, scrub: .45, invalidateOnRefresh: true
+        trigger: '.hero-stage', start: 'top top', end: () => '+=' + Math.min(320, innerHeight * .38),
+        scrub: .65, invalidateOnRefresh: true
       }
     })
       .to('.hero-content', { y: -24, duration: 1 }, 0)
