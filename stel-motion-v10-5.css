@@ -1,0 +1,98 @@
+/* STEL V07: reversible, scroll-linked motion. No hidden-content baseline. */
+.st-landing{overflow-x:clip}
+.st-landing .st-motion-edge{
+  transition:none!important;
+  opacity:var(--st-opacity,1);
+  translate:var(--st-x,0px) var(--st-y,0px);
+  scale:var(--st-scale,1);
+  filter:var(--st-filter,none);
+}
+.st-landing .st-motion-edge.st-motion-card{clip-path:none}
+.st-landing .st-motion-edge.st-motion-card:focus-within,
+.st-landing .st-motion-edge:focus-within{
+  opacity:1;translate:none;scale:none;filter:none;clip-path:none;
+}
+.st-landing .st-motion-card{isolation:isolate}
+.st-motion-glint{
+  position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(112deg,transparent 10%,#d7fa5a 48%,transparent 82%);
+  opacity:var(--st-glint-alpha,0);transform:translateX(var(--st-glint-x,0%));
+}
+.st-motion-wave .st-word-mask{display:inline;vertical-align:baseline;overflow:visible;padding:0;margin:0;white-space:normal}
+.st-motion-wave .st-word-ink{display:inline-block;max-width:100%;white-space:normal;overflow:visible;overflow-wrap:anywhere}
+.st-motion-wave.st-wave-edge .st-word-ink{
+  translate:0 var(--st-word-y,0%);opacity:var(--st-word-alpha,1);
+  filter:var(--st-word-filter,none);
+}
+.st-motion-wave.st-wave-edge:focus-within .st-word-ink{translate:none;opacity:1;filter:none}
+.campaign-sign .ribbon.st-band-edge{
+  filter:var(--st-band-filter,none);
+}
+.campaign-sign.st-ribbons-idle .ribbon-unit,.campaign-sign.st-ribbons-idle .ribbon::after{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){
+  .st-landing .st-motion-edge,.campaign-sign .ribbon.st-band-edge,.st-motion-wave.st-wave-edge .st-word-ink{opacity:1!important;translate:none!important;scale:none!important;filter:none!important;clip-path:none!important}
+  .st-motion-glint{display:none!important}
+}
+
+/* V09 — text safety: no clipping masks on text; allow italic overhang and descenders. */
+.hero .line-mask{overflow:visible;padding:0;margin:0;max-width:100%}
+.hero h1{overflow:visible;line-height:1.05;max-inline-size:100%;overflow-wrap:normal}
+.hero h1 .title-line{max-inline-size:100%;overflow:visible;padding-inline-end:.075em}
+.hero h1 .period{display:inline}
+.hero-body .hero-content{min-width:0}
+.st-landing :is(h2,h3){overflow:visible;max-inline-size:100%;line-height:1.13;overflow-wrap:anywhere;word-break:normal}
+.st-landing h2 em,.st-landing h3 em{line-height:inherit}
+.st-landing .st-value{line-height:1.09;overflow-wrap:anywhere}
+.st-landing .st-big-number{line-height:1}
+.st-landing :is(.st-head,.st-split,.st-faq-grid,.st-contact-panel,.st-offer-grid,.st-bento,.st-solar-module,.st-calc-results)>*{min-width:0}
+.st-landing .st-split{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.st-landing .st-faq-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.st-landing .st-contact-panel{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.st-landing .st-calc-results{grid-template-columns:repeat(2,minmax(0,1fr))}
+.st-landing .st-calc-results strong{overflow-wrap:anywhere;line-height:1.15}
+.st-landing .st-calc-top{flex-wrap:wrap}
+.st-landing .st-calc-top output{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.st-landing .st-solar-tab-copy,.st-landing .st-solar-tab-name,.st-landing .st-solar-tab-desc{max-width:100%;min-width:0;overflow-wrap:anywhere;line-height:1.2}
+.st-landing .st-solar-tab-desc{line-height:1.45}
+.st-landing .st-solar-panel-info{min-width:0}
+.st-landing .pill{max-width:100%;white-space:normal;min-width:0;overflow-wrap:anywhere;line-height:1.25}
+.st-landing .pill .arrow-disc{flex-shrink:0}
+.st-landing .st-follow .pill,.st-landing .st-solar-cta{flex-shrink:1}
+.st-landing .st-bento-cta{min-height:260px}
+.st-landing .st-bento{grid-template-rows:minmax(270px,auto) minmax(260px,auto)}
+.st-landing .st-contact .form-card,.st-landing .st-card{min-inline-size:0}
+.st-landing .st-contact .field :is(input,select){min-width:0;max-width:100%}
+.st-landing .st-faq summary{overflow-wrap:anywhere;line-height:1.5}
+.st-landing .st-footer .st-wrap>div{min-width:0;overflow-wrap:anywhere}
+@media(max-width:1000px){
+ .st-landing .st-contact-panel{grid-template-columns:minmax(0,1fr)}
+ .st-landing .st-bento{grid-template-rows:minmax(240px,auto) minmax(240px,auto) minmax(260px,auto)}
+}
+@media(max-width:800px){
+ .hero h1{font-size:clamp(34px,10.8vw,85px)}
+ .hero h1 .title-line{padding-inline-end:.045em}
+ .st-landing .st-head{flex-wrap:wrap}
+ .st-landing .st-head>div:first-child{max-width:100%}
+ .st-landing .st-split,.st-landing .st-faq-grid{grid-template-columns:minmax(0,1fr)}
+ .st-landing h2{font-size:clamp(32px,7.4vw,54px)}
+ .st-landing .st-solar-tab-name{font-size:clamp(12px,3.25vw,20px);line-height:1.2}
+ .st-landing .st-solar-tab{min-width:0}
+ .st-landing .st-solar-tab-copy{width:100%}
+}
+@media(max-width:700px){
+ .st-landing .st-bento{grid-template-rows:none;grid-auto-rows:minmax(290px,auto)}
+ .st-landing .st-offer-grid{grid-template-columns:minmax(0,1fr)}
+ .st-landing .st-contact .form-grid{grid-template-columns:minmax(0,1fr)}
+ .st-landing .st-bento-cta{min-height:260px}
+}
+@media(max-width:360px){
+ .st-landing .st-calc-results{grid-template-columns:minmax(0,1fr)}
+ .st-landing .st-contact-panel{padding:15px}
+ .st-landing .st-contact .form-card{padding:14px}
+ .st-landing .st-solar-tab-name{font-size:12px}
+}
+
+/* V10.5 — legal footer must be fully readable, even at the physical end of the page. */
+.st-landing .st-footer,.st-landing .st-footer .st-wrap{
+ opacity:1!important;filter:none!important;translate:none!important;scale:none!important;clip-path:none!important;
+}
