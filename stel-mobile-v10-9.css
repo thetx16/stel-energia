@@ -1,0 +1,42 @@
+/* STEL V10.9 — mobile readability and responsive footer. */
+@media (max-width:800px){
+  /* Remove the decorative icon without retaining an empty grid column. */
+  .st-bf-float{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"copy cta" "clock clock";gap:9px 10px}
+  .st-bf-float .st-bf-float-icon{display:none}
+  .st-bf-float-copy strong{font-size:17px;line-height:1.25}
+  .st-bf-float-copy>span{font-size:13px;line-height:1.45;overflow-wrap:normal}
+  .st-bf-count-unit small{font-size:10px}
+  .st-bf-float .st-bf-float-cta{font-size:14px}
+  /* Body copy and supporting text: readable without zoom, retain the existing palette. */
+  .st-landing .st-lead,.st-landing .st-offer p,.st-landing .st-segment p,
+  .st-landing .st-checks li,.st-landing .st-contact .desc,
+  .st-landing .st-solar-mobile-desc,#duvidas .st-faq-answer p{
+    font-size:17px;line-height:1.6;overflow-wrap:break-word
+  }
+  .st-landing .st-offer p{max-width:none}
+  .st-landing .st-meta,.st-landing .st-tag,.st-landing .st-note,
+  .st-landing .st-clock .count-text,.st-landing .st-range-label,
+  .st-landing .st-contact .consent,.st-landing .st-contact .form-note,
+  .st-landing .st-about-pics figcaption,.st-landing .st-solar-disclaimer{
+    font-size:14px;line-height:1.55;overflow-wrap:break-word
+  }
+  .st-landing .st-meta,.st-landing .st-tag{letter-spacing:.08em}
+  .st-landing .st-calc-top label,.st-landing .st-calc-results span,
+  .st-landing .st-text-link,.st-landing .st-contact .field label,
+  .st-landing .st-contact .field :is(input,select){font-size:16px;line-height:1.45}
+  .st-landing .st-calc-top label{max-width:none}
+  .st-landing .st-contact .field :is(input,select){min-height:49px}
+  #duvidas .st-faq-item summary .st-faq-question{font-size:17px;line-height:1.45}
+  /* Logo, full-width legal text and back-to-top on separate rows. */
+  .st-landing .st-footer .st-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
+  .st-landing .st-footer .st-wrap>a:first-child{justify-self:start}
+  .st-landing .st-footer .st-wrap>div{width:100%;min-width:0;overflow-wrap:normal;word-break:normal}
+  .st-landing .st-footer strong{display:block;font-size:17px;line-height:1.45}
+  .st-landing .st-footer p{font-size:15px;line-height:1.65;max-width:none;margin-top:8px;overflow-wrap:normal;word-break:normal}
+  .st-landing .st-back-top{margin:0;justify-self:start;display:inline-flex;align-items:center;min-height:44px;font-size:15px}
+}
+@media (max-width:360px){
+  .st-bf-float-copy strong{font-size:16px}
+  .st-bf-float-copy>span{font-size:13px}
+  .st-bf-float .st-bf-float-cta{font-size:13px}
+}
