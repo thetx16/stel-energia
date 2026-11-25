@@ -1,0 +1,113 @@
+/* STEL V10.6 — fixed campaign notice, below the central NPS launcher (2147483000). */
+.st-bf-float{
+ position:fixed;z-index:2147482000;
+ bottom:max(22px,env(safe-area-inset-bottom));left:20px;right:196px;
+ width:auto;max-width:780px;margin-inline:auto;
+ display:flex;align-items:center;gap:14px;padding:10px 11px 10px 15px;
+ color:var(--white);background:linear-gradient(115deg,#152631f7,#07121efc 65%);
+ border:1px solid #d7fa5a70;border-radius:22px;
+ box-shadow:0 12px 32px #0008,inset 0 1px #ffffff12;
+ opacity:0;visibility:hidden;pointer-events:none;
+ transform:translate3d(0,14px,0);
+ filter:blur(7px);
+ transition:opacity .7s cubic-bezier(.22,.61,.36,1),filter .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1),visibility 0s linear .7s;
+ font-family:"DM Sans",Arial,sans-serif;
+}
+.st-bf-float.is-visible{visibility:visible;opacity:1;pointer-events:auto;transform:translate3d(0,0,0);filter:blur(0);transition-delay:0s}
+.st-bf-float-icon{display:grid;place-items:center;flex:0 0 39px;height:39px;border-radius:50%;color:var(--ink);background:var(--lime);font-size:24px;line-height:1}
+.st-bf-float-copy{display:grid;gap:3px;min-width:0;flex:1}
+.st-bf-float-copy strong{font:750 16px/1.25 Manrope,Arial,sans-serif;color:var(--lime)}
+.st-bf-float-copy>span{font-size:13px;line-height:1.4;color:#e7edf0;overflow-wrap:anywhere}
+.st-bf-float-copy b{white-space:nowrap;font-weight:700;color:var(--white)}
+
+
+
+
+@media(max-width:800px){
+ .st-bf-float{left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom,0px));padding:9px 9px 9px 11px;gap:9px;border-radius:17px}
+ .st-bf-float-icon{flex-basis:30px;height:30px;font-size:19px}
+ .st-bf-float-copy strong{font-size:14px}
+ .st-bf-float-copy>span{font-size:11.5px;line-height:1.35}
+ 
+ 
+}
+@media(max-width:360px){.st-bf-float-icon{display:none}.st-bf-float-copy>span{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.st-bf-float,.st-bf-float.is-visible{transform:none;filter:none;transition:none}.st-bf-float.is-visible{opacity:1}}
+
+/* Larger neon campaign alert. Animated angle paints only the narrow border. */
+@property --bf-neon-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+.st-bf-float{
+ --bf-neon-angle:0deg;
+ max-width:940px;right:196px;gap:18px;padding:15px 15px 15px 20px;
+ border:2px solid #d7fa5a;
+ border-radius:26px;
+ background:linear-gradient(115deg,#152631,#07121e 65%);
+ box-shadow:0 0 10px #d7fa5a66,0 0 24px #d7fa5a32,0 12px 32px #0009,inset 0 1px #ffffff12;
+}
+@supports(background:conic-gradient(from 0deg,red,blue)){
+ .st-bf-float{
+  border-color:transparent;
+  background:linear-gradient(115deg,#152631,#07121e 65%) padding-box,
+    conic-gradient(from var(--bf-neon-angle),#789c29 0deg,#d7fa5a 45deg,#f6ffd9 65deg,#d7fa5a 85deg,#526e22 145deg,#a6d23d 200deg,#d7fa5a 245deg,#f6ffd9 265deg,#d7fa5a 285deg,#526e22 330deg,#789c29 360deg) border-box;
+ }
+ .st-bf-float{animation:st-bf-neon-orbit 3.8s linear infinite;animation-play-state:paused}
+ .st-bf-float.is-visible{animation-play-state:running}
+}
+@keyframes st-bf-neon-orbit{to{--bf-neon-angle:360deg}}
+.st-bf-float-icon{flex-basis:48px;height:48px;font-size:29px;box-shadow:0 0 16px #d7fa5a44}
+.st-bf-float-copy{gap:4px}
+.st-bf-float-copy strong{font-size:21px;line-height:1.24;letter-spacing:-.035em}
+.st-bf-float-copy>span{font-size:15px;line-height:1.4}
+
+
+@media(max-width:800px){
+ .st-bf-float{left:12px;right:12px;bottom:calc(80px + env(safe-area-inset-bottom,0px));padding:12px 10px 12px 12px;gap:10px;border-radius:20px;box-shadow:0 0 9px #d7fa5a55,0 0 19px #d7fa5a29,0 8px 24px #0008}
+ .st-bf-float-icon{flex-basis:35px;height:35px;font-size:23px}
+ .st-bf-float-copy strong{font-size:16px}
+ .st-bf-float-copy>span{font-size:12px}
+ 
+ 
+}
+@media(max-width:360px){.st-bf-float-icon{display:none}.st-bf-float-copy>span{font-size:11.5px}.st-bf-float-copy strong{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.st-bf-float{animation:none!important}}
+
+/* Use the shared .pill and .arrow-disc design and hover behavior. */
+.st-bf-float .st-bf-float-cta{flex:none;white-space:nowrap}
+.st-bf-float .st-bf-float-cta:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+@media(max-width:800px){
+ .st-bf-float .st-bf-float-cta{gap:8px;min-height:46px;padding:5px 6px 5px 14px;font-size:.86rem}
+ .st-bf-float .st-bf-float-cta .arrow-disc{width:34px}
+}
+@media(max-width:360px){.st-bf-float .st-bf-float-cta{gap:6px;padding-left:11px}.st-bf-float .st-bf-float-cta .arrow-disc{width:30px}}
+
+/* V10.7 — compact synchronized countdown in the floating campaign notice. */
+.st-bf-float{max-width:1040px;gap:14px}
+.st-bf-countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;flex:0 0 224px;min-width:0}
+.st-bf-count-unit{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:56px;padding:4px 2px;border:1px solid #d7fa5a55;border-radius:10px;background:linear-gradient(155deg,#142533,#081420);box-shadow:inset 0 1px 0 #ffffff0f}
+.st-bf-count-unit:last-child{border-color:#d7fa5ab3}
+.st-bf-count-unit b{display:flex;justify-content:center;gap:0;color:var(--lime);font:750 25px/1.2 Manrope,Arial,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:0}
+.st-bf-count-unit small{color:#c5cfd6;font:600 9px/1.2 "DM Sans",Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.st-bf-countdown .st-roll-digit{display:block;position:relative;width:.65em;height:1.25em;overflow:hidden;text-align:center;flex:none}
+.st-bf-countdown .st-roll-digit>span{display:block;position:absolute;inset:0;line-height:1.25;white-space:nowrap}
+@media(max-width:1050px) and (min-width:801px){
+ .st-bf-float{gap:10px;padding-inline:13px}
+ .st-bf-float-icon{flex-basis:38px;height:38px;font-size:24px}
+ .st-bf-float-copy strong{font-size:18px}
+ .st-bf-float-copy>span{font-size:13px}
+ .st-bf-countdown{flex-basis:184px;gap:4px}
+ .st-bf-count-unit b{font-size:21px}
+ .st-bf-count-unit small{font-size:8px}
+ .st-bf-float .st-bf-float-cta{gap:8px;min-height:46px;padding:5px 6px 5px 12px;font-size:.86rem}
+ .st-bf-float .st-bf-float-cta .arrow-disc{width:34px}
+}
+@media(max-width:800px){
+ .st-bf-float{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"icon copy cta" "clock clock clock";gap:8px 10px}
+ .st-bf-float-icon{grid-area:icon}
+ .st-bf-float-copy{grid-area:copy}
+ .st-bf-float .st-bf-float-cta{grid-area:cta}
+ .st-bf-countdown{grid-area:clock;gap:6px;width:100%;max-width:360px;justify-self:center}
+ .st-bf-count-unit{min-height:42px;padding:3px 2px;border-radius:8px}
+ .st-bf-count-unit b{font-size:20px}
+ .st-bf-count-unit small{font-size:9px}
+}
+@media(max-width:360px){.st-bf-float{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"copy cta" "clock clock";gap:7px}}
