@@ -1,7 +1,7 @@
 /* STEL V10.6 — fixed campaign notice, below the central NPS launcher (2147483000). */
 .st-bf-float{
  position:fixed;z-index:2147482000;
- bottom:max(22px,env(safe-area-inset-bottom));left:20px;right:196px;
+ bottom:max(22px,env(safe-area-inset-bottom));left:20px;right:20px;
  width:auto;max-width:780px;margin-inline:auto;
  display:flex;align-items:center;gap:14px;padding:10px 11px 10px 15px;
  color:var(--white);background:linear-gradient(115deg,#152631f7,#07121efc 65%);
@@ -38,7 +38,7 @@
 @property --bf-neon-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
 .st-bf-float{
  --bf-neon-angle:0deg;
- max-width:940px;right:196px;gap:18px;padding:15px 15px 15px 20px;
+ max-width:940px;right:20px;gap:18px;padding:15px 15px 15px 20px;
  border:2px solid #d7fa5a;
  border-radius:26px;
  background:linear-gradient(115deg,#152631,#07121e 65%);
