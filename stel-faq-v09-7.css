@@ -1,0 +1,78 @@
+/* STEL V09.7 — editorial FAQ cards, native accessible accordion */
+#duvidas .st-faq{display:grid;gap:12px;border:0;min-width:0}
+#duvidas .st-faq-item{
+ position:relative;min-width:0;padding:0;border:1px solid #ffffff24;border-radius:22px;
+ background:linear-gradient(125deg,#10202d 0%,#0b1724 70%);
+ box-shadow:0 8px 24px #00000014;
+ transition:background .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+#duvidas .st-faq-item[open]{
+ background:linear-gradient(120deg,#182c2c 0%,#0d1b28 62%,#0b1724 100%);
+ border-color:#d7fa5a8c;
+ box-shadow:0 0 22px #d7fa5a12,inset 3px 0 0 #d7fa5a;
+}
+#duvidas .st-faq-item summary{
+ display:grid;grid-template-columns:35px minmax(0,1fr) 43px;align-items:center;gap:15px;
+ min-height:94px;padding:20px 23px;list-style:none;cursor:pointer;
+ line-height:1.4;border-radius:21px;
+}
+#duvidas .st-faq-item summary::-webkit-details-marker{display:none}
+#duvidas .st-faq-item summary::marker{content:""}
+#duvidas .st-faq-item summary span::after{content:none}
+#duvidas .st-faq-item summary .st-faq-number{
+ display:block;width:auto;height:auto;border:0;border-radius:0;background:none;
+ color:#d7fa5a;font:700 12px/1.4 Manrope,Arial,sans-serif;letter-spacing:.12em;
+}
+#duvidas .st-faq-item summary .st-faq-question{
+ display:block;width:auto;height:auto;border:0;border-radius:0;background:none;
+ color:var(--white);font:700 clamp(17px,1.4vw,21px)/1.42 Manrope,Arial,sans-serif;
+ letter-spacing:-.025em;overflow-wrap:anywhere;min-width:0;transition:color .25s ease;
+}
+#duvidas .st-faq-item summary .st-faq-control{
+ display:grid;place-items:center;width:43px;height:43px;flex:none;
+ border:1px solid #d7fa5a48;border-radius:50%;background:#d7fa5a0b;color:var(--lime);
+ transition:color .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease,transform .3s ease;
+}
+#duvidas .st-faq-control svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.9;stroke-linecap:round}
+#duvidas .st-faq-control .st-faq-plus{transform-origin:12px 12px;transition:transform .26s ease,opacity .26s ease}
+#duvidas .st-faq-item[open] .st-faq-control{background:var(--lime);border-color:var(--lime);color:var(--ink);box-shadow:0 0 15px #d7fa5a36}
+#duvidas .st-faq-item[open] .st-faq-plus{transform:rotate(90deg);opacity:0}
+#duvidas .st-faq-item[open] .st-faq-question{color:var(--lime)}
+#duvidas .st-faq-answer{margin:0 23px 0 73px;border-top:1px solid #d7fa5a28}
+#duvidas .st-faq-answer p{padding:17px 0 23px;margin:0;font-size:17px;line-height:1.65;color:var(--st-muted);overflow-wrap:anywhere}
+#duvidas .st-faq-item summary:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+@media(hover:hover){
+ #duvidas .st-faq-item:hover{border-color:#d7fa5a88}
+ #duvidas .st-faq-item:not([open]) summary:hover .st-faq-control{background:var(--lime);color:var(--ink);box-shadow:0 0 14px #d7fa5a44;transform:rotate(90deg)}
+}
+@supports (interpolate-size:allow-keywords) and (transition-behavior:allow-discrete){
+ #duvidas .st-faq-item{interpolate-size:allow-keywords}
+ #duvidas .st-faq-item::details-content{
+  block-size:0;opacity:0;overflow:clip;
+  transition:block-size .34s cubic-bezier(.2,.7,.2,1),opacity .22s ease,content-visibility .34s allow-discrete;
+ }
+ #duvidas .st-faq-item[open]::details-content{block-size:auto;opacity:1}
+}
+@supports not ((interpolate-size:allow-keywords) and (transition-behavior:allow-discrete)){
+ #duvidas .st-faq-item[open] .st-faq-answer{animation:stel-faq-answer-in .28s ease both}
+ @keyframes stel-faq-answer-in{from{opacity:0;translate:0 -5px}to{opacity:1;translate:0 0}}
+}
+@media(max-width:800px){
+ #duvidas .st-faq{gap:10px}
+ #duvidas .st-faq-item{border-radius:18px}
+ #duvidas .st-faq-item summary{grid-template-columns:25px minmax(0,1fr) 36px;gap:10px;padding:16px;min-height:80px;border-radius:17px}
+ #duvidas .st-faq-item summary .st-faq-control{width:36px;height:36px}
+ #duvidas .st-faq-item summary .st-faq-question{font-size:17px}
+ #duvidas .st-faq-answer{margin:0 16px 0 51px}
+ #duvidas .st-faq-answer p{font-size:16px;padding:14px 0 19px}
+}
+@media(max-width:360px){
+ #duvidas .st-faq-item summary{grid-template-columns:20px minmax(0,1fr) 33px;padding:14px;gap:8px}
+ #duvidas .st-faq-item summary .st-faq-control{width:33px;height:33px}
+ #duvidas .st-faq-item summary .st-faq-question{font-size:16px}
+ #duvidas .st-faq-answer{margin-inline:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ #duvidas .st-faq-item,#duvidas .st-faq-item *{transition:none!important;animation:none!important}
+ #duvidas .st-faq-item::details-content{transition:none!important}
+}
