@@ -1,0 +1,38 @@
+/* STEL V10 — interactive calculator depth, independent of scroll animation. */
+.st-calc-tilt-shell{min-width:0;position:relative}
+.st-landing .st-calc-tilt-shell>.st-calc{
+ --tilt-rx:0deg;--tilt-ry:0deg;--tilt-x:50%;--tilt-y:50%;--tilt-light:0;
+ box-shadow:0 14px 30px #0004,inset 0 1px 0 #ffffff0b;
+}
+@media(prefers-reduced-motion:no-preference){
+ .st-landing .st-calc-tilt-shell>.st-calc.is-tilting{
+  transform:perspective(1200px) rotateX(var(--tilt-rx)) rotateY(var(--tilt-ry));
+  transform-origin:50% 50%;
+  transform-style:preserve-3d;
+  overflow:visible;
+  background:radial-gradient(ellipse at var(--tilt-x) var(--tilt-y),rgb(215 250 90 / var(--tilt-light)) 0%,transparent 65%),linear-gradient(145deg,#142333,#081420);
+  border-color:#d7fa5a58;
+  box-shadow:0 20px 44px #0008,0 0 23px #d7fa5a16,inset 0 1px 0 #ffffff20;
+  will-change:transform;
+ }
+ .st-landing .st-calc.is-tilting .st-calc-results>div{
+  transform:translateZ(12px);box-shadow:0 9px 18px #0004;
+ }
+ .st-landing .st-calc.is-tilting .st-calc-top output{
+  transform:translateZ(14px);
+  text-shadow:0 0 19px #d7fa5a22;
+ }
+}
+@media(max-width:800px),(pointer:coarse),(prefers-reduced-motion:reduce){
+ .st-landing .st-calc-tilt-shell>.st-calc{box-shadow:0 12px 24px #0004,inset 0 1px 0 #ffffff0e}
+}
+
+/* V10.10 — touch depth, while the outer shell handles scroll animation. */
+@media(prefers-reduced-motion:no-preference){
+ .st-landing .st-calc-tilt-shell>.st-calc.is-tilting.is-touch-tilting{
+  transform:perspective(850px) rotateX(var(--tilt-rx)) rotateY(var(--tilt-ry));
+  box-shadow:0 18px 35px #0009,0 0 19px #d7fa5a35,inset 0 1px 0 #ffffff20;
+ }
+ .st-landing .st-calc.is-touch-tilting.is-tilting .st-calc-results>div{transform:translateZ(16px)}
+ .st-landing .st-calc.is-touch-tilting.is-tilting .st-calc-top output{transform:translateZ(17px)}
+}
