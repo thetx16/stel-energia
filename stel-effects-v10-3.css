@@ -1,0 +1,57 @@
+/* STEL V10.1 — independent adaptations of the supplied countdown and spotlight effects. */
+#ofertas .st-clock{width:min(100%,390px)}
+#ofertas .count-text{display:flex;align-items:center;gap:9px;letter-spacing:.07em;font-weight:700;text-transform:uppercase}
+#ofertas .count-text::before{content:"";width:8px;height:8px;flex:none;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 #d7fa5a80}
+#ofertas .st-clock.st-clock-active:not(.st-clock-done) .count-text::before{animation:st-clock-pulse 1.8s ease-out infinite}
+@keyframes st-clock-pulse{75%,100%{box-shadow:0 0 0 8px #d7fa5a00}}
+#ofertas .st-count{gap:8px;grid-template-columns:repeat(4,minmax(0,1fr))}
+#ofertas .st-count>div{min-width:0;padding:12px 5px 10px;border-radius:16px;background:linear-gradient(155deg,#142533,#081420);border:1px solid #d7fa5a33;box-shadow:inset 0 1px 0 #ffffff0f,0 7px 16px #0003}
+#ofertas .st-count>div:last-child{border-color:#d7fa5a80}
+#ofertas .st-count b{display:flex;justify-content:center;gap:0;font:750 clamp(28px,3vw,42px)/1.2 Manrope,Arial,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:0;color:var(--lime)}
+#ofertas .st-roll-digit{display:block;position:relative;width:.65em;height:1.25em;overflow:hidden;text-align:center;flex:none}
+#ofertas .st-roll-digit>span{display:block;position:absolute;inset:0;line-height:1.25;white-space:nowrap}
+#ofertas .st-count small{font-size:11px;letter-spacing:.08em}
+#ofertas .st-clock-done .st-count{display:none}
+#ofertas .st-clock-done .count-text{letter-spacing:0;text-transform:none}
+#ofertas .st-clock-done .count-text::before{display:none}
+@media(max-width:800px){#ofertas .st-clock{width:100%;max-width:390px}#ofertas .st-count b{font-size:clamp(25px,7.3vw,39px)}#ofertas .st-count>div{padding:10px 3px 8px}}
+@media(prefers-reduced-motion:reduce){#ofertas .count-text::before{animation:none!important}}
+/* V10.3 — full-perimeter spotlight, independent of text spacing and accordion content. */
+.st-landing .st-spot-position{position:relative}
+.st-landing .st-spot-target>.st-spot-light,
+#duvidas .st-faq-item>summary>.st-spot-light{
+ display:block;position:absolute;inset:0;margin:0!important;padding:0!important;
+ width:auto;height:auto;min-width:0;min-height:0;max-width:none;max-height:none;
+ box-sizing:border-box;border:0;border-radius:inherit;pointer-events:none;
+ z-index:4;opacity:0;transition:opacity .26s ease;
+ background:radial-gradient(circle 245px at var(--spot-x,50%) var(--spot-y,50%),#d7fa5a1a 0%,#d7fa5a08 45%,transparent 78%);
+}
+.st-landing .st-spot-light::after,
+#duvidas .st-faq-item>summary>.st-spot-light::after{
+ content:"";display:block;position:absolute;inset:0;box-sizing:border-box;
+ margin:0;padding:1.5px;border-radius:inherit;pointer-events:none;
+ background:radial-gradient(circle 235px at var(--spot-x,50%) var(--spot-y,50%),#f6ffd8 0%,#d7fa5a 30%,#8bb32d 58%,transparent 80%);
+ -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;
+ mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;
+}
+.st-landing .st-spot-on>.st-spot-light,
+#duvidas .st-faq-item.st-spot-on>summary>.st-spot-light{opacity:1}
+/* The wrapper inside the summary remains visible when <details> is closed,
+   but its containing block is the whole card, including the expanded answer. */
+#duvidas .st-faq-item>summary{position:static}
+#duvidas .st-faq-item>summary>.st-spot-light{border-radius:inherit}
+.st-landing :is(.st-feature,.st-bento-cta,.st-calc-results>div:last-child)>.st-spot-light{
+ background:radial-gradient(circle 245px at var(--spot-x,50%) var(--spot-y,50%),#ffffff30,transparent 78%)
+}
+.st-landing :is(.st-feature,.st-bento-cta,.st-calc-results>div:last-child)>.st-spot-light::after{
+ background:radial-gradient(circle 235px at var(--spot-x,50%) var(--spot-y,50%),#fff 0%,#f5ffc7 35%,#91b72a 65%,transparent 80%)
+}
+.st-landing :is(.st-photo,.st-solar-panel,.st-about-pics figure)>.st-spot-light{
+ background:radial-gradient(circle 245px at var(--spot-x,50%) var(--spot-y,50%),#d7fa5a0c,transparent 78%)
+}
+.st-landing :is(.st-calc,.st-contact-panel)>.st-spot-light{
+ background:radial-gradient(circle 245px at var(--spot-x,50%) var(--spot-y,50%),#d7fa5a0a,transparent 78%)
+}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+ .st-landing .st-spot-target>.st-spot-light,#duvidas .st-faq-item>summary>.st-spot-light{display:none!important}
+}
